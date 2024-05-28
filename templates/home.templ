@@ -1,0 +1,18 @@
+package templates
+
+templ Home() {
+	<html>
+		<head>
+			<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+			<title>GPA</title>
+		</head>
+
+		<body>
+			<button hx-get="/add-sem" hx-target="div.semesterlist" hx-swap="beforeend">
+				Add Semester
+			</button>
+			<div class="semesterlist">
+			</div>
+		</body>
+	</html>
+}
