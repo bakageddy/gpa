@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Subject() templ.Component {
+func Form() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,7 @@ func Subject() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><label for=\"subject_code\">Subject Code</label> <input type=\"text\" name=\"subject_code\"></div><br><div><label for=\"subject_credit\">Subject Credit</label> <input type=\"number\" name=\"subject_credit\"></div><br><div><label for=\"subject_grade\">Subject Grade</label> <select name=\"subject_grade\"><option value=\"10\">O</option> <option value=\"9\">A+</option> <option value=\"8\">A</option> <option value=\"7\">B+</option> <option value=\"6\">B</option> <option value=\"5\">C</option></select></div><br><br>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form hx-post=\"/submit\"><label>Name</label> <input name=\"user_name\" type=\"text\"> <label>Register Number</label> <input name=\"user_register_no\" type=\"number\"> <button type=\"submit\">Submit</button></form>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

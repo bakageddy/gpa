@@ -1,15 +1,17 @@
 package templates
 
-templ Home() {
+templ Home(path string) {
+	<!DOCTYPE html>
 	<html>
 		<head>
+			<link rel="stylesheet" href={path}/>
 			<script src="https://unpkg.com/htmx.org@1.9.12"></script>
 			<title>GPA</title>
 		</head>
 
 		<body>
-			<button hx-get="/add-sem" hx-target="div.semesterlist" hx-swap="beforeend">
-				Add Semester
+			<button id="start" hx-post="/form" hx-target="div.semesterlist" hx-swap="beforeend">
+				Render Form
 			</button>
 			<div class="semesterlist">
 			</div>

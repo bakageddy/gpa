@@ -1,0 +1,15 @@
+package templates
+
+templ Form() {
+	<form hx-post="/submit">
+		<label>Name</label>
+		<input name="user_name" type="text"/>
+
+		<label>Register Number</label>
+		<input name="user_register_no" type="number"/>
+
+		<button type="submit">
+			Submit
+		</button>
+	</form>
+}

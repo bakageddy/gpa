@@ -2,15 +2,34 @@ package templates
 
 import "strconv"
 
-templ Semester(id int) {
+templ Semester(id int, initial_len int) {
 	<h1>Semester { strconv.Itoa(id) }</h1>
-	<div class="semester" id={ strconv.Itoa(id) }>
-		<form name="semester_gpa" hx-post="/calculate_gpa" hx-swap="innerHTML" hx-target=".gpa_result">
-			<button hx-get="/add-sub" hx-swap="beforeend" hx-target="next div.subjectlist">Add Subject</button>
-			<div class="subjectlist"></div>
-			<input type="submit"/>
-		</form>
-	</div>
-	<div class="gpa_result">
-	</div>
+	
+	<form id="semester_form" hx-post="/submit">
+		for i := range initial_len {
+			@form_fields(i)
+		}
+
+		<button hx-get="/add">Add Subject</button>
+		<button type="submit">Submit</button>
+	</form>
+}
+
+templ form_fields(id int) {
+	<div> {strconv.FormatInt(int64(id), 10)} </div>
+	<label>Subject Code</label>
+	<input type="text" name="subject_code"/>
+
+	<label>Credit</label>
+	<input type="number" name="credit_val"/>
+
+	<label>Subject Grade</label>
+	<select value="O" name="subject_grade">
+		<option value="10">O</option>
+		<option value="9">A+</option>
+		<option value="8">A</option>
+		<option value="7">B+</option>
+		<option value="6">B</option>
+		<option value="5">C</option>
+	</select>
 }

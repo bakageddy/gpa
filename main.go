@@ -5,49 +5,57 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
+	"strconv"
 
 	"github.com/bakageddy/gpa/templates"
 )
 
-func id_generator() func() int {
-	id := 0
-	return func() int {
-		id += 1
-		return id
+const CSS_PATH = "index.css"
+
+func css(w http.ResponseWriter, r *http.Request) {
+	file, err := os.Open(CSS_PATH)
+	if err != nil {
+		return
 	}
+	data, err := io.ReadAll(file)
+	if err != nil {
+		return
+	}
+	w.Header().Add("Content-type", "text/css")
+	w.Write(data)
 }
 
-var id func() int = id_generator()
-
-func add_subject(w http.ResponseWriter, _ *http.Request) {
-	comp := templates.Subject()
+func home(w http.ResponseWriter, r *http.Request) {
+	comp := templates.Home(CSS_PATH)
 	comp.Render(context.Background(), w)
 }
 
-func calculate_gpa(w http.ResponseWriter, r *http.Request) {
-	body, err := io.ReadAll(r.Body)
-	if (err != nil) {
-		w.Write([]byte("Error calculating GPA"))
-	}
-
-	log.Println(string(body))
-	w.Write([]byte("hehe boi"))
-}
-
-func add_semester(w http.ResponseWriter, _ *http.Request) {
-	comp := templates.Semester(id())
+func form(w http.ResponseWriter, r *http.Request) {
+	comp := templates.Semester(1, 3)
 	comp.Render(context.Background(), w)
 }
 
-func home(w http.ResponseWriter, _ *http.Request) {
-	comp := templates.Home()
+func submit(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		return
+	}
+	if r.ParseForm() != nil {
+		log.Println("Failed to parse form!")
+		return
+	}
+}
+
+func add(w http.ResponseWriter, r *http.Request) {
+	comp := templates.Semester(1, 3)
 	comp.Render(context.Background(), w)
 }
 
 func main() {
-	http.HandleFunc("/calculate_gpa", calculate_gpa)
-	http.HandleFunc("/add-sem", add_semester)
-	http.HandleFunc("/add-sub", add_subject)
+	http.HandleFunc("/add", add)
+	http.HandleFunc("/index.css", css)
+	http.HandleFunc("/form", form)
+	http.HandleFunc("/submit", submit)
 	http.HandleFunc("/", home)
 
 	http.ListenAndServe(":8080", nil)
