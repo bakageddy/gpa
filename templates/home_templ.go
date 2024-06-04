@@ -32,13 +32,13 @@ func Home(css_path string) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(css_path)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 10, Col: 39}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 10, Col: 40}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script></head><body>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script></head><body><form name=\"cpga_form\" hx-post=\"/cgpa\" hx-target=\"next .cgpa_result_wrapper\" hx-swap=\"innerHTML\"><div class=\"semester_list_wrapper\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -46,7 +46,7 @@ func Home(css_path string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><button hx-target=\"previous .semester_list_wrapper\" hx-swap=\"beforeend\" hx-get=\"/semester/add\">Add Semester</button> <button hx-target=\"previous .semester_wrapper\" hx-swap=\"delete\" hx-delete=\"/semester/delete\">Delete Semester</button> <button type=\"submit\">Submit</button></form><div class=\"cpga_result_wrapper\"></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -70,20 +70,20 @@ func Semester(id int) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1>Semester ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"semester_wrapper\"><h1>Semester ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(id))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 20, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `home.templ`, Line: 35, Col: 33}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><form name=\"semester_form\" hx-post=\"/gpa\"><div class=\"subject_list_wrapper\"></div><button hx-target=\"previous .subject_list_wrapper\" hx-swap=\"beforeend\" hx-get=\"/subject/add\">Add Subject</button> <button hx-target=\"previous .subject_wrapper\" hx-swap=\"delete\" hx-delete=\"/subject/delete\">Delete Subject</button> <button type=\"submit\">Submit</button></form>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><form name=\"semester_form\" hx-post=\"/gpa\" hx-target=\"next .gpa_result_wrapper\" hx-swap=\"innerHTML\"><div class=\"subject_list_wrapper\"></div><button hx-target=\"previous .subject_list_wrapper\" hx-swap=\"beforeend\" hx-get=\"/subject/add\">Add Subject</button> <button hx-target=\"previous .subject_wrapper\" hx-swap=\"delete\" hx-delete=\"/subject/delete\">Delete Subject</button> <button type=\"submit\">Submit</button></form><div class=\"gpa_result_wrapper\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

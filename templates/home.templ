@@ -7,23 +7,46 @@ templ Home(css_path string) {
 	<html>
 		<head>
 			<title>GPA Calculator</title>
-			<link rel="stylesheet" src={css_path}></link>
+			<link rel="stylesheet" src={ css_path }/>
 			<script src="https://unpkg.com/htmx.org@1.9.12"></script>
 		</head>
 		<body>
-			@Semester(0)
+			<form name="cpga_form" hx-post="/cgpa" hx-target="next .cgpa_result_wrapper" hx-swap="innerHTML">
+				<div class="semester_list_wrapper">
+					@Semester(0)
+				</div>
+				<button hx-target="previous .semester_list_wrapper" hx-swap="beforeend" hx-get="/semester/add">
+					Add
+					Semester
+				</button>
+				<button hx-target="previous .semester_wrapper" hx-swap="delete" hx-delete="/semester/delete">
+					Delete
+					Semester
+				</button>
+				<button type="submit">Submit</button>
+			</form>
+			<div class="cpga_result_wrapper"></div>
 		</body>
 	</html>
 }
 
 templ Semester(id int) {
-	<h1>Semester { strconv.Itoa(id) }</h1>
-	<form name="semester_form" hx-post="/gpa">
-		<div class="subject_list_wrapper"></div>
-		<button hx-target="previous .subject_list_wrapper" hx-swap="beforeend" hx-get="/subject/add">Add Subject</button>
-		<button hx-target="previous .subject_wrapper" hx-swap="delete" hx-delete="/subject/delete">Delete Subject</button>
-		<button type="submit">Submit</button>
-	</form>
+	<div class="semester_wrapper">
+		<h1>Semester { strconv.Itoa(id) }</h1>
+		<form name="semester_form" hx-post="/gpa" hx-target="next .gpa_result_wrapper" hx-swap="innerHTML">
+			<div class="subject_list_wrapper"></div>
+			<button hx-target="previous .subject_list_wrapper" hx-swap="beforeend" hx-get="/subject/add">
+				Add
+				Subject
+			</button>
+			<button hx-target="previous .subject_wrapper" hx-swap="delete" hx-delete="/subject/delete">
+				Delete
+				Subject
+			</button>
+			<button type="submit">Submit</button>
+		</form>
+		<div class="gpa_result_wrapper"></div>
+	</div>
 }
 
 templ Subject() {
