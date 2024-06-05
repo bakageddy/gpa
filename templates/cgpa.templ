@@ -1,9 +1,0 @@
-package templates
-
-import "fmt"
-
-templ CGPA(score float64) {
-	<div class="gpa_result_wrapper">
-		<div>Your CGPA is { fmt.Sprintf("%.3f", score) }</div>
-	</div>
-}

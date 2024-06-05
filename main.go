@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -9,17 +8,18 @@ import (
 )
 
 func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/cgpa", services.Cgpa)
-	mux.HandleFunc("/gpa", services.Gpa)
-	mux.HandleFunc("/subject/add", services.SubjectAdd)
-	mux.HandleFunc("/subject/delete", services.SubjectDelete)
-	mux.HandleFunc("/semester/add", services.SemesterAdd)
-	mux.HandleFunc("/semester/delete", services.SemesterDelete)
-	mux.HandleFunc(fmt.Sprintf("/%s", services.CSS_PATH), services.CSS)
-	mux.HandleFunc("/", services.Home)
+	http.HandleFunc("/cgpa", services.Cgpa)
+	http.HandleFunc("/subject/add", services.SubjectAdd)
+	http.HandleFunc("/subject/delete", services.SubjectDelete)
+	http.HandleFunc("/semester/add", services.SemesterAdd)
+	http.HandleFunc("/semester/delete", services.SemesterDelete)
+
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	http.HandleFunc("/", services.Home)
 
 	log.Println("Starting Server!")
-	http.ListenAndServe(":8080", mux)
+	http.ListenAndServe(":8080", nil)
 	log.Println("Ending Server!")
 }

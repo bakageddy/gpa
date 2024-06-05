@@ -22,6 +22,11 @@ func CalculateGPA(f url.Values) (types.GPA, error) {
 		if err != nil {
 			return types.GPA{}, err
 		}
+
+		if (creditval < 0) {
+			return types.GPA{}, errors.New("Malformed Request")
+		}
+
 		total_subject_cred += creditval
 
 		gradeval, err := strconv.Atoi(grade_list_s[i])
