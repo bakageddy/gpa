@@ -1,0 +1,82 @@
+button {
+	background-color: #8EC07C;
+	padding: 0.5rem;
+	border: 0.5rem;
+	color: #1D2021;
+	border: none;
+	border-radius: 1em;
+	font-family: sans-serif;
+}
+
+html {
+	background-color: #1d2021;
+}
+
+input {
+	flex: 1;
+}
+
+select {
+	flex: 1;
+	align-content: flex-end;
+}
+
+.box {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.semester_list_wrapper {
+	display: flex;
+	flex-direction: column;
+	border: 2px;
+	border-color: #ebdbb2;
+	color: #ebdbb2
+}
+
+.subject_list_wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.subject_wrapper {
+	justify-self: auto;
+	padding: 0.4rem;
+}
+
+.form_item {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: 1rem;
+}
+
+.semester_wrapper {
+	border-width: 20px;
+}
+
+.semester_header {
+	text-align: center;
+}
+
+.button_group_wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.htmx-added {
+	display: none;
+}
+
+.cgpa_result_wrapper {
+	margin: 0.3rem;
+	padding: 0.3rem;
+	border-radius: 0.3rem;
+	color: #1D2021;
+	background-color: #B8BB26;
+}
+

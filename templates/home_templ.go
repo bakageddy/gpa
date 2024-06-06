@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Home(path string) templ.Component {
+func Home() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +23,63 @@ func Home(path string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><link rel=\"stylesheet\" href=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>GPA Calculator</title><link rel=\"stylesheet\" href=\"/static/index.css\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script></head><body><div class=\"box\"><form><div class=\"semester_list_wrapper\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(path)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/home.templ`, Line: 7, Col: 36}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+		templ_7745c5c3_Err = Semester().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><title>GPA</title></head><body><button id=\"start\" hx-post=\"/form\" hx-target=\"div.semesterlist\" hx-swap=\"beforeend\">Render Form</button><div class=\"semesterlist\"></div></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"button_group_wrapper\"><button hx-target=\"previous .semester_list_wrapper\" hx-swap=\"beforeend\" hx-get=\"/semester/add\">Add Semester</button> <button hx-target=\"previous .semester_wrapper\" hx-swap=\"delete\" hx-delete=\"/semester/delete\">Delete Semester</button> <button type=\"submit\" name=\"cpga_form\" hx-post=\"/cgpa\" hx-target=\".cgpa_result_wrapper\" hx-swap=\"innerHTML\">Submit</button></div></form><div class=\"cgpa_result_wrapper\"></div></div></body></html>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if !templ_7745c5c3_IsBuffer {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteTo(templ_7745c5c3_W)
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func Semester() templ.Component {
+	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
+		if !templ_7745c5c3_IsBuffer {
+			templ_7745c5c3_Buffer = templ.GetBuffer()
+			defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var2 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var2 == nil {
+			templ_7745c5c3_Var2 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"semester_wrapper\"><fieldset><legend><h1>Semester</h1></legend><div class=\"subject_list_wrapper\"></div><div class=\"button_group_wrapper\"><button hx-get=\"/subject/add\" hx-target=\"previous .subject_list_wrapper\" hx-swap=\"beforeend\">Add Subject</button> <button hx-delete=\"/subject/delete\" hx-target=\"previous .subject_wrapper\" hx-swap=\"delete\">Delete Subject</button></div></fieldset></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if !templ_7745c5c3_IsBuffer {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteTo(templ_7745c5c3_W)
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func Subject() templ.Component {
+	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
+		if !templ_7745c5c3_IsBuffer {
+			templ_7745c5c3_Buffer = templ.GetBuffer()
+			defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"subject_wrapper\"><div class=\"subject_code_wrapper form_item\"><label>Subject Code</label> <input type=\"text\" name=\"subject_code\"></div><div class=\"subject_credit_wrapper form_item\"><label>Subject Credit(s)</label> <input type=\"number\" name=\"subject_credit\"></div><div class=\"subject_grade_wrapper form_item\"><label>Subject Grade</label> <select name=\"subject_grade\"><option value=\"10\">O</option> <option value=\"9\">A+</option> <option value=\"8\">A</option> <option value=\"7\">B+</option> <option value=\"6\">B</option> <option value=\"5\">C</option></select></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
