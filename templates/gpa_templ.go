@@ -26,7 +26,7 @@ func GPA(score types.GPA) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"cgpa_result_wrapper\"><div>Your CGPA for the Semester is ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"htmx-added cgpa_result_wrapper\"><div>Your CGPA for the Semester is ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
