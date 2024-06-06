@@ -4,18 +4,18 @@ on:
     branches:
       - main
       - rewrite
-  jobs:
-    setup_go:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-go@v5
-          with: 
-            go-version: '^1.22.0'
-        - run: go install github.com/a-h/templ/cmd/templ@latest
-        - run: go get github.com/a-h/templ
+jobs:
+  setup_go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: 
+          go-version: '^1.22.0'
+      - run: go install github.com/a-h/templ/cmd/templ@latest
+      - run: go get github.com/a-h/templ
 
-    run_project:
-      runs-on: ubuntu-latest
-      steps:
-        - run: go run main.go
+  run_project:
+    runs-on: ubuntu-latest
+    steps:
+      - run: go run main.go
