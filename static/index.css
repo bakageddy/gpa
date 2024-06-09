@@ -21,6 +21,12 @@ select {
 	align-content: flex-end;
 }
 
+fieldset {
+	border-color: #ebdbb2;
+	border-style: solid;
+	border-radius: 0.7rem;
+}
+
 .box {
 	display: flex;
 	align-items: center;
@@ -66,10 +72,6 @@ select {
 	justify-content: space-evenly;
 	gap: 0.5rem;
 	margin-top: 1rem;
-}
-
-.htmx-added {
-	display: none;
 }
 
 .cgpa_result_wrapper {

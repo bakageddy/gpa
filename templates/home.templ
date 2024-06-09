@@ -25,12 +25,12 @@ templ Home() {
 							type="submit"
 							name="cpga_form"
 							hx-post="/cgpa"
-							hx-target=".cgpa_result_wrapper"
-							hx-swap="innerHTML"
+							hx-target="#cgpa_result"
+							hx-swap="outerHTML"
 						>Submit</button>
 					</div>
 				</form>
-				<div class="cgpa_result_wrapper"></div>
+				<div id="cgpa_result"></div>
 			</div>
 		</body>
 	</html>

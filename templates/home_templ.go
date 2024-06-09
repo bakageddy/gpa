@@ -31,7 +31,7 @@ func Home() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"button_group_wrapper\"><button hx-target=\"previous .semester_list_wrapper\" hx-swap=\"beforeend\" hx-get=\"/semester/add\">Add Semester</button> <button hx-target=\"previous .semester_wrapper\" hx-swap=\"delete\" hx-delete=\"/semester/delete\">Delete Semester</button> <button type=\"submit\" name=\"cpga_form\" hx-post=\"/cgpa\" hx-target=\".cgpa_result_wrapper\" hx-swap=\"innerHTML\">Submit</button></div></form><div class=\"cgpa_result_wrapper\"></div></div></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"button_group_wrapper\"><button hx-target=\"previous .semester_list_wrapper\" hx-swap=\"beforeend\" hx-get=\"/semester/add\">Add Semester</button> <button hx-target=\"previous .semester_wrapper\" hx-swap=\"delete\" hx-delete=\"/semester/delete\">Delete Semester</button> <button type=\"submit\" name=\"cpga_form\" hx-post=\"/cgpa\" hx-target=\"#cgpa_result\" hx-swap=\"outerHTML\">Submit</button></div></form><div id=\"cgpa_result\"></div></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
