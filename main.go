@@ -20,6 +20,6 @@ func main() {
 	http.HandleFunc("/", services.Home)
 
 	log.Println("Starting Server!")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 	log.Println("Ending Server!")
 }

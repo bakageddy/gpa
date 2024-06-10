@@ -1,28 +1,54 @@
+@keyframes at_load {
+	from {
+		transform: translateY(300px);
+	}
+	to {
+		transform: translateY(0px);
+	}
+}
+
 button {
-	background-color: #8EC07C;
+	background-color: #84a0c6;
 	padding: 0.5rem;
 	border: 0.5rem;
-	color: #1D2021;
+	color: #161821;
 	border: none;
 	border-radius: 1em;
 	font-family: sans-serif;
 }
 
 html {
-	background-color: #1d2021;
+	background-color: #161821;
+	color: #c6c8d1;
+	animation-name: at_load;
+	animation-duration: 1s;
 }
 
 input {
 	flex: 1;
+	background-color: #161821;
+	border-color: #c6c8d1;
+	color: #c6c8d1;
+	border-width: 0.05rem;
+	border-style: solid;
+	border-radius: 0.5rem;
+	padding-left: 0.2rem;
 }
 
 select {
 	flex: 1;
 	align-content: flex-end;
+	background-color: #161821;
+	color: #c6c8d1;
+	border-color: #c6c8d1;
+	border-style: solid;
+	border-width: 0.05rem;
+	border-radius: 0.5rem;
+	padding-left: 0.2rem;
 }
 
 fieldset {
-	border-color: #ebdbb2;
+	border-color: #c6c8d1;
 	border-style: solid;
 	border-radius: 0.7rem;
 }
@@ -33,12 +59,20 @@ fieldset {
 	flex-direction: column;
 }
 
+.header_wrapper {
+	background-color: #1e2132;
+	margin-left: 0rem;
+	margin-right: 0rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
+}
+
 .semester_list_wrapper {
 	display: flex;
 	flex-direction: column;
 	border: 2px;
-	border-color: #ebdbb2;
-	color: #ebdbb2
+	border-color: #c6c8d1;
+	color: #c6c8d1;
 }
 
 .subject_list_wrapper {
@@ -80,5 +114,10 @@ fieldset {
 	border-radius: 0.3rem;
 	color: #1D2021;
 	background-color: #B8BB26;
+}
+
+.github_link {
+	background-color: #161821;
+	color: #c6c8d1;
 }
 

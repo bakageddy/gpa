@@ -9,6 +9,7 @@ templ Home() {
 			<script src="https://unpkg.com/htmx.org@1.9.12"></script>
 		</head>
 		<body>
+			@Header()
 			<div class="box">
 				<form>
 					<div class="semester_list_wrapper">
@@ -75,5 +76,15 @@ templ Subject() {
 				<option value="5">C</option>
 			</select>
 		</div>
+	</div>
+}
+
+templ Header() {
+	<div class="header_wrapper">
+		<a class="github_link" target="new" href="https://github.com/bakageddy">
+			<div>
+				About Me
+			</div>
+		</a>
 	</div>
 }
