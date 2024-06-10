@@ -5,6 +5,7 @@ templ Home() {
 	<html>
 		<head>
 			<title>GPA Calculator</title>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald&display=swap"/>
 			<link rel="stylesheet" href="/static/index.css"/>
 			<script src="https://unpkg.com/htmx.org@1.9.12"></script>
 		</head>
@@ -81,10 +82,16 @@ templ Subject() {
 
 templ Header() {
 	<div class="header_wrapper">
-		<a class="github_link" target="new" href="https://github.com/bakageddy">
-			<div>
-				About Me
-			</div>
-		</a>
+		<div class="menu_icon">
+			<img src="/static/menu.svg" alt="Menu Icon"/>
+		</div>
+		<div class="application_name">
+			GPA Calculator
+		</div>
+		<div class="github_link">
+			<a target="new" href="https://github.com/bakageddy">
+					About Me
+			</a>
+		</div>
 	</div>
 }

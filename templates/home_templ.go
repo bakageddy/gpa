@@ -23,7 +23,7 @@ func Home() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>GPA Calculator</title><link rel=\"stylesheet\" href=\"/static/index.css\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script></head><body>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>GPA Calculator</title><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Oswald&amp;display=swap\"><link rel=\"stylesheet\" href=\"/static/index.css\"><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script></head><body>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -111,7 +111,7 @@ func Header() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"header_wrapper\"><a class=\"github_link\" target=\"new\" href=\"https://github.com/bakageddy\"><div>About Me</div></a></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"header_wrapper\"><div class=\"menu_icon\"><img src=\"/static/menu.svg\" alt=\"Menu Icon\"></div><div class=\"application_name\">GPA Calculator</div><div class=\"github_link\"><a target=\"new\" href=\"https://github.com/bakageddy\">About Me</a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

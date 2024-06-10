@@ -14,7 +14,7 @@ button {
 	color: #161821;
 	border: none;
 	border-radius: 1em;
-	font-family: sans-serif;
+	font-family: monospace;
 }
 
 html {
@@ -48,6 +48,7 @@ select {
 }
 
 fieldset {
+	font-family: Oswald;
 	border-color: #c6c8d1;
 	border-style: solid;
 	border-radius: 0.7rem;
@@ -57,14 +58,6 @@ fieldset {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-}
-
-.header_wrapper {
-	background-color: #1e2132;
-	margin-left: 0rem;
-	margin-right: 0rem;
-	padding-left: 0rem;
-	padding-right: 0rem;
 }
 
 .semester_list_wrapper {
@@ -116,8 +109,32 @@ fieldset {
 	background-color: #e27878;
 }
 
-.github_link {
-	background-color: #161821;
-	color: #c6c8d1;
+.header_wrapper {
+	display: flex;
+	justify-content: space-between;
+	background-color: #1e2132;
+	border-radius: 0.7rem;
+	padding: 0.2rem;
+	margin: 0.2rem;
 }
 
+.github_link {
+	background-color: #1e2132;
+	color: #c6c8d1;
+	/* padding-right: 0.5rem; */
+}
+
+.menu_icon {
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+}
+
+.application_name {
+	background-color: #e27878;
+	color: #161821;
+	border-radius: 0.5rem;
+	text-align: center;
+	padding: 0.3rem;
+	font-family: "Alfa Slab One", monospace;
+}

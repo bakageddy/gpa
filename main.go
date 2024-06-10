@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/bakageddy/gpa/services"
 )
@@ -20,6 +21,11 @@ func main() {
 	http.HandleFunc("/", services.Home)
 
 	log.Println("Starting Server!")
-	http.ListenAndServe(":80", nil)
+	env := os.Getenv("DEBUG_APP")
+	if env == "" {
+		http.ListenAndServe(":80", nil)
+	} else {
+		http.ListenAndServe(":8080", nil)
+	}
 	log.Println("Ending Server!")
 }
