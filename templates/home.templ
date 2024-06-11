@@ -27,12 +27,12 @@ templ Home() {
 							type="submit"
 							name="cpga_form"
 							hx-post="/cgpa"
-							hx-target="#cgpa_result"
+							hx-target=".cgpa_result"
 							hx-swap="outerHTML"
 						>Submit</button>
 					</div>
 				</form>
-				<div id="cgpa_result"></div>
+				<div class="cgpa_result"></div>
 			</div>
 		</body>
 	</html>
@@ -64,7 +64,7 @@ templ Subject() {
 		</div>
 		<div class="subject_credit_wrapper form_item">
 			<label>Subject Credit(s)</label>
-			<input type="number" name="subject_credit"/>
+			<input min="1" max="100" type="number" name="subject_credit"/>
 		</div>
 		<div class="subject_grade_wrapper form_item">
 			<label>Subject Grade</label>

@@ -4,7 +4,7 @@ import "fmt"
 import "github.com/bakageddy/gpa/types"
 
 templ GPA(score types.GPA) {
-	<div class="cgpa_result_wrapper neon_text">
+	<div class="cgpa_result_wrapper neon_text cgpa_result">
 		<div>Your CGPA for the Semester is { fmt.Sprintf("%.3f", score.Score) }</div>
 		<div>Your Total Subject Credits is { fmt.Sprintf("%d", score.TotalSubjectCredits) }</div>
 		<div>Your Total Credits is { fmt.Sprintf("%d", score.TotalCredits) }</div>

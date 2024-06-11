@@ -23,6 +23,12 @@
 	}
 }
 
+@media (max-width: 480px) {}
+@media (max-width: 600px) {}
+@media (max-width: 768px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 1200px) {}
+
 button {
 	background-color: #84a0c6;
 	padding: 0.5rem;
