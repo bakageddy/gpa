@@ -7,6 +7,22 @@
 	}
 }
 
+@keyframes flicker_neon {
+	0%, 18%, 22%, 25%, 53%, 57%, 100% {
+		text-shadow: 0 0 4px #a093c7,
+					0 0 12px #a093c7,
+					0 0 22px #a093c7,
+					0 0 34px #a093c7,
+					0 0 48px #a093c7,
+					0 0 70px #a093c7,
+					0 0 86px #a093c7,
+					0 0 120px #a093c7;
+	}
+	20%, 24%, 55%{
+		text-shadow: none;
+	}
+}
+
 button {
 	background-color: #84a0c6;
 	padding: 0.5rem;
@@ -14,8 +30,9 @@ button {
 	color: #161821;
 	border: none;
 	border-radius: 1em;
-	font-family: monospace;
+	font-family: Oswald;
 }
+
 
 html {
 	background-color: #161821;
@@ -52,6 +69,15 @@ fieldset {
 	border-color: #c6c8d1;
 	border-style: solid;
 	border-radius: 0.7rem;
+	box-shadow: 
+		0 0 1px  #1e2132,
+		0 0 1px  #1e2132,
+		0 0 2px  #1e2132,
+		0 0 3px  #1e2132,
+		0 0 5px  #1e2132,
+		0 0 8px  #1e2132,
+		0 0 13px #1e2132,
+		0 0 21px #1e2132;
 }
 
 .box {
@@ -105,8 +131,10 @@ fieldset {
 	margin: 0.3rem;
 	padding: 0.3rem;
 	border-radius: 0.3rem;
-	color: #161821;
-	background-color: #e27878;
+	color: #a093c7;
+	animation-name: flicker_neon;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
 }
 
 .header_wrapper {

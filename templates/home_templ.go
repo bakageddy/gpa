@@ -111,7 +111,7 @@ func Header() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"header_wrapper\"><div class=\"menu_icon\"><img src=\"/static/menu.svg\" alt=\"Menu Icon\"></div><div class=\"application_name\">GPA Calculator</div><div class=\"github_link\"><a target=\"new\" href=\"https://github.com/bakageddy\">About Me</a></div></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"header_wrapper\"><div class=\"menu_icon\"><img src=\"/static/menu.svg\" alt=\"Menu Icon\"></div><div class=\"application_name\">GPA Calculator</div><div class=\"github_link\"><a target=\"new\" href=\"https://github.com/bakageddy\"><div class=\"github_link\">About Me</div></a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
